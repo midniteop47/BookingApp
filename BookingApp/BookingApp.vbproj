@@ -50,10 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -171,6 +171,9 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\AuthUsersController.vb" />
+    <Compile Include="Controllers\ProductsController.vb" />
+    <Compile Include="Controllers\TechesController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +274,24 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="StyleSheetLogin.css" />
+    <Content Include="Views\Teches\Create.vbhtml" />
+    <Content Include="Views\Teches\Delete.vbhtml" />
+    <Content Include="Views\Teches\Details.vbhtml" />
+    <Content Include="Views\Teches\Edit.vbhtml" />
+    <Content Include="Views\Teches\Index.vbhtml" />
+    <Content Include="Views\Products\Create.vbhtml" />
+    <Content Include="Views\Products\Delete.vbhtml" />
+    <Content Include="Views\Products\Details.vbhtml" />
+    <Content Include="Views\Products\Edit.vbhtml" />
+    <Content Include="Views\Products\Index.vbhtml" />
+    <Content Include="Views\AuthUsers\Create.vbhtml" />
+    <Content Include="Views\AuthUsers\Delete.vbhtml" />
+    <Content Include="Views\AuthUsers\Details.vbhtml" />
+    <Content Include="Views\AuthUsers\Edit.vbhtml" />
+    <Content Include="Views\AuthUsers\Index.vbhtml" />
+    <Content Include="Views\Shared\_Layout - Login.vbhtml" />
+    <Content Include="Views\AuthUsers\Login.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -292,8 +313,6 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Views\_ViewStart.vbhtml" />
-    <Content Include="Views\Home\About.vbhtml" />
-    <Content Include="Views\Home\Contact.vbhtml" />
     <Content Include="Views\Home\Index.vbhtml" />
     <Content Include="Views\Shared\Error.vbhtml" />
     <Content Include="Views\Shared\_Layout.vbhtml" />
