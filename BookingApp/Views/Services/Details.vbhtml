@@ -1,39 +1,29 @@
-﻿@code
+﻿
+@code
     If IsNothing(Session("auth")) Then
         Response.RedirectToRoute(New With {.controller = "AuthUsers", .action = "Login"})
     End If
 End Code
 
-
-@ModelType BookingApp.Tech
+@ModelType BookingApp.Service
 @Code
     ViewData("Title") = "Details"
     Layout = "~/Views/Shared/_Layout.vbhtml"
-
 End Code
 
 <h2>Details</h2>
 
 <div>
-    <h4>Tech</h4>
+    <h4>Service</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.Name)
+            @Html.DisplayNameFor(Function(model) model.Service1)
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.Name)
+            @Html.DisplayFor(Function(model) model.Service1)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.PostcodeRange)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.PostcodeRange)
-        </dd>
-       
 
     </dl>
 </div>

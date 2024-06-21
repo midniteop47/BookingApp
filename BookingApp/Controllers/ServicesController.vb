@@ -9,91 +9,96 @@ Imports System.Web.Mvc
 Imports BookingApp
 
 Namespace Controllers
-    Public Class TechesController
+    Public Class ServicesController
         Inherits System.Web.Mvc.Controller
+
         Private db As New BookingsEntities
 
-        ' GET: Teches
+        ' GET: Services
         Function Index() As ActionResult
-            Return View(db.Techs.ToList())
+            Return View(db.Services.ToList())
+        End Function
+        <HttpGet>
+        Function ServiceList() As ActionResult
+            Return Json(db.Services.ToList(), behavior:=JsonRequestBehavior.AllowGet)
         End Function
 
-        ' GET: Teches/Details/5
+        ' GET: Services/Details/5
         Function Details(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim tech As Tech = db.Techs.Find(id)
-            If IsNothing(tech) Then
+            Dim service As Service = db.Services.Find(id)
+            If IsNothing(service) Then
                 Return HttpNotFound()
             End If
-            Return View(tech)
+            Return View(service)
         End Function
 
-        ' GET: Teches/Create
+        ' GET: Services/Create
         Function Create() As ActionResult
             Return View()
         End Function
 
-        ' POST: Teches/Create
+        ' POST: Services/Create
         'To protect from overposting attacks, enable the specific properties you want to bind to, for 
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="id,Name,PostcodeRange,Services")> ByVal tech As Tech) As ActionResult
+        Function Create(<Bind(Include:="id,Service1")> ByVal service As Service) As ActionResult
             If ModelState.IsValid Then
-                db.Techs.Add(tech)
+                db.Services.Add(service)
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            Return View(tech)
+            Return View(service)
         End Function
 
-        ' GET: Teches/Edit/5
+        ' GET: Services/Edit/5
         Function Edit(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim tech As Tech = db.Techs.Find(id)
-            If IsNothing(tech) Then
+            Dim service As Service = db.Services.Find(id)
+            If IsNothing(service) Then
                 Return HttpNotFound()
             End If
-            Return View(tech)
+            Return View(service)
         End Function
 
-        ' POST: Teches/Edit/5
+        ' POST: Services/Edit/5
         'To protect from overposting attacks, enable the specific properties you want to bind to, for 
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="id,Name,PostcodeRange,Services")> ByVal tech As Tech) As ActionResult
+        Function Edit(<Bind(Include:="id,Service1")> ByVal service As Service) As ActionResult
             If ModelState.IsValid Then
-                db.Entry(tech).State = EntityState.Modified
+                db.Entry(service).State = EntityState.Modified
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            Return View(tech)
+            Return View(service)
         End Function
 
-        ' GET: Teches/Delete/5
+        ' GET: Services/Delete/5
         Function Delete(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim tech As Tech = db.Techs.Find(id)
-            If IsNothing(tech) Then
+            Dim service As Service = db.Services.Find(id)
+            If IsNothing(service) Then
                 Return HttpNotFound()
             End If
-            Return View(tech)
+            Return View(service)
         End Function
 
-        ' POST: Teches/Delete/5
+        ' POST: Services/Delete/5
         <HttpPost()>
         <ActionName("Delete")>
         <ValidateAntiForgeryToken()>
         Function DeleteConfirmed(ByVal id As Integer) As ActionResult
-            Dim tech As Tech = db.Techs.Find(id)
-            db.Techs.Remove(tech)
+            Dim service As Service = db.Services.Find(id)
+            db.Services.Remove(service)
             db.SaveChanges()
             Return RedirectToAction("Index")
         End Function

@@ -3,26 +3,26 @@
         Response.RedirectToRoute(New With {.controller = "AuthUsers", .action = "Login"})
     End If
 End Code
-@ModelType BookingApp.AuthUser
+
+@ModelType BookingApp.Service
 @Code
     ViewData("Title") = "Delete"
     Layout = "~/Views/Shared/_Layout.vbhtml"
-
 End Code
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete @Model.Name</h3>
+<h3>Are you sure you want to delete this Service?</h3>
 <div>
-
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.Name)
+          Service
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.Name)
+            @Html.DisplayFor(Function(model) model.Service1)
         </dd>
 
     </dl>

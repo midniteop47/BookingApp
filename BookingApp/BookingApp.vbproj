@@ -173,11 +173,16 @@
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\AuthUsersController.vb" />
     <Compile Include="Controllers\ProductsController.vb" />
+    <Compile Include="Controllers\ServiceDataController.vb" />
+    <Compile Include="Controllers\ServicesController.vb" />
     <Compile Include="Controllers\TechesController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthUser.vb">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingData.vb">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModel.Context.vb">
@@ -196,6 +201,12 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.vb">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service.vb">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiceData.vb">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tech.vb">
@@ -251,6 +262,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\FTPProfile.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -292,6 +304,16 @@
     <Content Include="Views\AuthUsers\Index.vbhtml" />
     <Content Include="Views\Shared\_Layout - Login.vbhtml" />
     <Content Include="Views\AuthUsers\Login.vbhtml" />
+    <Content Include="Views\Services\Create.vbhtml" />
+    <Content Include="Views\Services\Delete.vbhtml" />
+    <Content Include="Views\Services\Details.vbhtml" />
+    <Content Include="Views\Services\Edit.vbhtml" />
+    <Content Include="Views\Services\Index.vbhtml" />
+    <Content Include="Views\ServiceData\Create.vbhtml" />
+    <Content Include="Views\ServiceData\Delete.vbhtml" />
+    <Content Include="Views\ServiceData\Details.vbhtml" />
+    <Content Include="Views\ServiceData\Edit.vbhtml" />
+    <Content Include="Views\ServiceData\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

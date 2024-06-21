@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BookingsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BookingsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AuthUsers">
           <Key>
             <PropertyRef Name="id" />
@@ -13,6 +13,22 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Pass" Type="nvarchar(max)" />
           <Property Name="Permission" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BookingData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="TechName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="emial" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -25,6 +41,22 @@
           <Property Name="ServiceType" Type="nvarchar" MaxLength="50" />
           <Property Name="Cost" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServiceData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" />
+          <Property Name="TechName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Duration" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Techs">
           <Key>
             <PropertyRef Name="id" />
@@ -32,15 +64,16 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="PostcodeRange" Type="nvarchar(max)" />
-          <Property Name="Services" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="BookingsModelStoreContainer">
           <EntitySet Name="AuthUsers" EntityType="Self.AuthUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookingData" EntityType="Self.BookingData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceData" EntityType="Self.ServiceData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Techs" EntityType="Self.Techs" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BookingsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -71,13 +104,47 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PostcodeRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Services" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="BookingsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AuthUsers" EntityType="Self.AuthUser" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Techs" EntityType="Self.Tech" />
+          <EntitySet Name="BookingDatas" EntityType="BookingsModel.BookingData" />
+          <EntitySet Name="Services" EntityType="BookingsModel.Service" />
+          <EntitySet Name="ServiceDatas" EntityType="BookingsModel.ServiceData" />
         </EntityContainer>
+        <EntityType Name="BookingData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TechName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TechName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -112,7 +179,41 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PostcodeRange" ColumnName="PostcodeRange" />
-                <ScalarProperty Name="Services" ColumnName="Services" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookingDatas">
+            <EntityTypeMapping TypeName="BookingsModel.BookingData">
+              <MappingFragment StoreEntitySet="BookingData">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="emial" ColumnName="emial" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="ServiceTime" ColumnName="ServiceTime" />
+                <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+                <ScalarProperty Name="TechName" ColumnName="TechName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="BookingsModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Service1" ColumnName="Service" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceDatas">
+            <EntityTypeMapping TypeName="BookingsModel.ServiceData">
+              <MappingFragment StoreEntitySet="ServiceData">
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="TechName" ColumnName="TechName" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

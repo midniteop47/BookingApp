@@ -10,16 +10,17 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tech
-    Public Property id As Integer
-    Public Property Name As String
-    Public Property PostcodeRange As String
-
-End Class
-
-Partial Public Class ServiceListForTechs
+Partial Public Class BookingData
     Public Property id As Integer
     Public Property Service As String
+    Public Property Description As String
     Public Property TechName As String
-    Public Property Duration As String
+    Public Property ServiceDate As String
+    Public Property ServiceTime As String
+    Public Property Customer As String
+    Public Property Address As String
+    Public Property emial As String
+    Public Property Phone As String
+    Public Property Status As String
+
 End Class

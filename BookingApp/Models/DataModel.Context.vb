@@ -25,5 +25,8 @@ Partial Public Class BookingsEntities
     Public Overridable Property AuthUsers() As DbSet(Of AuthUser)
     Public Overridable Property Products() As DbSet(Of Product)
     Public Overridable Property Techs() As DbSet(Of Tech)
+    Public Overridable Property BookingDatas() As DbSet(Of BookingData)
+    Public Overridable Property Services() As DbSet(Of Service)
+    Public Overridable Property ServiceDatas() As DbSet(Of ServiceData)
 
 End Class

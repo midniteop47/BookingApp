@@ -34,21 +34,14 @@ End Code
         <dd>
             @Html.DisplayFor(Function(model) model.PostcodeRange)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.Services)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.Services)
-        </dd>
+       
 
     </dl>
     @Using (Html.BeginForm())
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     End Using

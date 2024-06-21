@@ -3,60 +3,41 @@
         Response.RedirectToRoute(New With {.controller = "AuthUsers", .action = "Login"})
     End If
 End Code
-
-
-@ModelType BookingApp.Product
+@ModelType BookingApp.ServiceData
 @Code
     ViewData("Title") = "Delete"
     Layout = "~/Views/Shared/_Layout.vbhtml"
-
 End Code
 
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Product</h4>
+    <h4>ServiceData</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Product Name
+            @Html.DisplayNameFor(Function(model) model.Service)
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.ProductName)
+            @Html.DisplayFor(Function(model) model.Service)
         </dd>
 
         <dt>
-            Product Type
+            @Html.DisplayNameFor(Function(model) model.TechName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.ProductType)
+            @Html.DisplayFor(Function(model) model.TechName)
         </dd>
 
         <dt>
-            Sub Catagoty
+            @Html.DisplayNameFor(Function(model) model.Duration)
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.SubCatagoty)
-        </dd>
-
-        <dt>
-            Service Type
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.ServiceType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.Cost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.Cost)
+            @Html.DisplayFor(Function(model) model.Duration)
         </dd>
 
     </dl>
@@ -64,7 +45,7 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     End Using

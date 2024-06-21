@@ -10,16 +10,10 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tech
-    Public Property id As Integer
-    Public Property Name As String
-    Public Property PostcodeRange As String
-
-End Class
-
-Partial Public Class ServiceListForTechs
+Partial Public Class ServiceData
     Public Property id As Integer
     Public Property Service As String
     Public Property TechName As String
     Public Property Duration As String
+
 End Class

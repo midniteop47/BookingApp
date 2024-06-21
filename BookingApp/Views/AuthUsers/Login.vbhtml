@@ -29,6 +29,9 @@ End Code
 <script>
 
     console.log('@Html.Raw(ViewBag.res)')
+  
+
+
 
     function submitForm() {
     var formData = {
