@@ -42,7 +42,6 @@ End Code
                 @Html.ValidationMessageFor(Function(model) model.Duration, "", New With {.class = "text-danger"})
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

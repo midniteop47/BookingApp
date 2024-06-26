@@ -37,30 +37,36 @@ End Code
     <a href="@Url.Action("Create", "Products")" class="btn btn-primary btn-lg"> <i class="bi bi-file-earmark-plus"></i> Create New</a>
 </p>
 <hr />
-<div class="row">
-    @For Each item In Model
-        @<div Class="col-md-3 mb-5">
-            <div Class="card">
-                <div Class="containera">
-                    <div>
-                        <h3>@Html.DisplayFor(Function(modelItem) item.ProductName)</h3>
-                        <hr />
-                    </div>
-                    <div>
-                        <h5>@Html.DisplayFor(Function(modelItem) item.ProductType)</h5>
-                        <h5>@Html.DisplayFor(Function(modelItem) item.SubCatagoty)</h5>
-                        <h5>@Html.DisplayFor(Function(modelItem) item.ServiceType)</h5>
-                        <h5>@Html.DisplayFor(Function(modelItem) item.Cost)</h5>
-                        <hr />
-                    </div>
-
-                    <div>
+<div>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <td>Brand</td>
+                <td>Product</td>
+                <td>Service</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @For Each item In Model
+                @<tr>
+                    <td>
+                        @item.ProductName
+                    </td>
+                    <td>
+                        @item.ProductType
+                    </td>
+                    <td>
+                        @item.ServiceType
+                    </td>
+                    <td>
                         <a Class="btn btn-default" href="@Url.Action("Edit", "Products", New With {.id = item.id})"><i class="bi bi-pencil"></i></a>
                         <a Class="btn btn-danger" href="@Url.Action("Delete", "Products", New With {.id = item.id})"><i class="bi bi-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    Next
+                    </td>
+                </tr>
+
+            Next
+        </tbody>
+    </table>
 </div>
 

@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\AuthUsersController.vb" />
+    <Compile Include="Controllers\BookingController.vb" />
     <Compile Include="Controllers\ProductsController.vb" />
     <Compile Include="Controllers\ServiceDataController.vb" />
     <Compile Include="Controllers\ServicesController.vb" />
@@ -314,6 +315,8 @@
     <Content Include="Views\ServiceData\Details.vbhtml" />
     <Content Include="Views\ServiceData\Edit.vbhtml" />
     <Content Include="Views\ServiceData\Index.vbhtml" />
+    <Content Include="Views\Booking\Index.vbhtml" />
+    <Content Include="Views\Shared\_Layout -Booking.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

@@ -16,10 +16,3 @@ Partial Public Class Tech
     Public Property PostcodeRange As String
 
 End Class
-
-Partial Public Class ServiceListForTechs
-    Public Property id As Integer
-    Public Property Service As String
-    Public Property TechName As String
-    Public Property Duration As String
-End Class

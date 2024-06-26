@@ -18,7 +18,23 @@ Namespace Controllers
         Function Index() As ActionResult
             Return View(db.Products.ToList())
         End Function
-
+        Function GetBrands()
+            Dim products = db.Products.Select(Function(p) p.ProductName).Distinct().ToList()
+            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
+        End Function
+        Function GetProdsType()
+            Dim products = db.Products.Select(Function(p) p.ProductType).Distinct().ToList()
+            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
+        End Function
+        <HttpGet>
+        Function GetProd(ByVal a As String, b As String, c As String)
+            Dim productList = db.Products _
+                    .Where(Function(p) p.ProductName = a AndAlso
+                                       p.ProductType = b AndAlso
+                                       p.ServiceType = c) _
+                    .ToList()
+            Return Json(productList, behavior:=JsonRequestBehavior.AllowGet)
+        End Function
         ' GET: Products/Details/5
         Function Details(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
@@ -41,7 +57,7 @@ Namespace Controllers
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="id,ProductName,ProductType,SubCatagoty,ServiceType,Cost")> ByVal product As Product) As ActionResult
+        Function Create(<Bind(Include:="id,ProductName,ProductType,SubCatagoty,ServiceType,Cost,Note")> ByVal product As Product) As ActionResult
             If ModelState.IsValid Then
                 db.Products.Add(product)
                 db.SaveChanges()
@@ -67,7 +83,7 @@ Namespace Controllers
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="id,ProductName,ProductType,SubCatagoty,ServiceType,Cost")> ByVal product As Product) As ActionResult
+        Function Edit(<Bind(Include:="id,ProductName,ProductType,SubCatagoty,ServiceType,Cost,Note")> ByVal product As Product) As ActionResult
             If ModelState.IsValid Then
                 db.Entry(product).State = EntityState.Modified
                 db.SaveChanges()

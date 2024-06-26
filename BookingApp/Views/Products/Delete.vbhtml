@@ -50,6 +50,13 @@ End Code
         <dd>
             @Html.DisplayFor(Function(model) model.ServiceType)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(Function(model) model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.Note)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(Function(model) model.Cost)

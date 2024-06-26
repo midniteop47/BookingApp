@@ -22,5 +22,6 @@ Partial Public Class BookingData
     Public Property emial As String
     Public Property Phone As String
     Public Property Status As String
+    Public Property ServiceTime2 As Nullable(Of Date)
 
 End Class

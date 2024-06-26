@@ -17,5 +17,6 @@ Partial Public Class Product
     Public Property SubCatagoty As String
     Public Property ServiceType As String
     Public Property Cost As String
+    Public Property Note As String
 
 End Class
