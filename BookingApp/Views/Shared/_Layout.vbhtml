@@ -30,7 +30,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Booking", "Index", "")</li>
+                    <li>@Html.ActionLink("Booking", "Index", "BookingData")</li>
                     <li>@Html.ActionLink("Service Techs", "Index", "Teches")</li>
                     <li>@Html.ActionLink("Products", "Index", "Products")</li>
                     <li class="dropdown">

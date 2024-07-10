@@ -68,19 +68,45 @@ Namespace Controllers
                 conn.Close()
                 If Not IsDBNull(DS2.Tables(0)) Then
                     If DS2.Tables(0).Rows.Count > 0 Then
+                        Dim bookingsPerDayAndTime As New Dictionary(Of String, Dictionary(Of String, Integer))()
                         For Each row As DataRow In DS2.Tables(0).Rows
                             Dim timeStr As String = row(1).ToString()
-                            Dim DateStr As String = row(0).ToString()
-                            Dim Bookedtime As DateTime = DateTime.ParseExact(timeStr, "hh:mm tt", CultureInfo.InvariantCulture)
-                            Dim BookedDate As DateTime = DateTime.ParseExact(BookedDate, "dd-MMM-yyyy", CultureInfo.InvariantCulture)
-                            If Bookedtime > maxTime Then
-                                maxTime = Bookedtime
+                            Dim dateStr As String = row(0).ToString()
+
+                            ' Parse the time and date from strings
+                            Dim bookedTime As DateTime = DateTime.ParseExact(timeStr, "hh:mm tt", CultureInfo.InvariantCulture)
+                            Dim bookedDate As DateTime = DateTime.ParseExact(dateStr, "dd-MMM-yyyy", CultureInfo.InvariantCulture)
+                            Dim formattedDate As String = bookedDate.ToString("dd-MMM-yyyy")
+
+                            ' Initialize a new dictionary for the day if it doesn't exist
+                            If Not bookingsPerDayAndTime.ContainsKey(formattedDate) Then
+                                bookingsPerDayAndTime(formattedDate) = New Dictionary(Of String, Integer)()
                             End If
+
+                            ' Initialize count for the specific time on this day if it doesn't exist
+                            If Not bookingsPerDayAndTime(formattedDate).ContainsKey(timeStr) Then
+                                bookingsPerDayAndTime(formattedDate)(timeStr) = 0
+                            End If
+
+                            ' Increment the count for the specific time on this day
+                            bookingsPerDayAndTime(formattedDate)(timeStr) += 1
                         Next
 
+                        ' Output the results
+                        For Each dayTimePair In bookingsPerDayAndTime
+                            Dim dateStr As String = dayTimePair.Key
+                            Dim bookingsForDay As Dictionary(Of String, Integer) = dayTimePair.Value
 
+                            Console.WriteLine("Bookings for " & dateStr & ":")
+                            For Each timeCountPair In bookingsForDay
+                                Dim timeStr As String = timeCountPair.Key
+                                Dim count As Integer = timeCountPair.Value
 
+                                Console.WriteLine("- Time: " & timeStr & ", Bookings: " & count)
+                            Next
 
+                            Console.WriteLine()
+                        Next
                     End If
                 Else
                     'Available

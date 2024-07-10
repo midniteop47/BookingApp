@@ -9,112 +9,96 @@ Imports System.Web.Mvc
 Imports BookingApp
 
 Namespace Controllers
-    Public Class ProductsController
+    Public Class BookingDataController
         Inherits System.Web.Mvc.Controller
 
         Private db As New BookingsEntities
 
-        ' GET: Products
+        ' GET: BookingData
         Function Index() As ActionResult
-            Return View(db.Products.ToList())
+            Return View(db.BookingDatas.ToList())
         End Function
-        Function GetBrands()
-            Dim products = db.Products.Select(Function(p) p.ProductName).Distinct().ToList()
-            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
+        Function GetBookings(dt As String) As ActionResult
+            Dim BookedData = db.BookingDatas.Where(Function(d) d.ServiceDate = dt).ToList()
+            Return Json(BookedData, behavior:=JsonRequestBehavior.AllowGet)
+
         End Function
-        Function GetProdsType()
-            Dim products = db.Products.Select(Function(p) p.ProductType).Distinct().ToList()
-            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
-        End Function
-        Function GetAddons()
-            Dim products = db.Products.Select(Function(p) p.ProductType).Distinct().ToList()
-            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
-        End Function
-        <HttpGet>
-        Function GetProd(ByVal a As String, b As String, c As String)
-            Dim productList = db.Products _
-                    .Where(Function(p) p.ProductName = a AndAlso
-                                       p.ProductType = b AndAlso
-                                       p.ServiceType = c) _
-                    .ToList()
-            Return Json(productList, behavior:=JsonRequestBehavior.AllowGet)
-        End Function
-        ' GET: Products/Details/5
+        ' GET: BookingData/Details/5
         Function Details(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim product As Product = db.Products.Find(id)
-            If IsNothing(product) Then
+            Dim bookingData As BookingData = db.BookingDatas.Find(id)
+            If IsNothing(bookingData) Then
                 Return HttpNotFound()
             End If
-            Return View(product)
+            Return View(bookingData)
         End Function
 
-        ' GET: Products/Create
+        ' GET: BookingData/Create
         Function Create() As ActionResult
             Return View()
         End Function
 
-        ' POST: Products/Create
+        ' POST: BookingData/Create
         'To protect from overposting attacks, enable the specific properties you want to bind to, for 
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="id,ProductName,ProductType,SubCatagoty,ServiceType,Cost,Note")> ByVal product As Product) As ActionResult
+        Function Create(<Bind(Include:="id,Service,Description,TechName,ServiceDate,ServiceTime,Customer,Address,emial,Phone,Status,ServiceTime2,PostCode,BrandName,ApplianceType,AdditionalReq")> ByVal bookingData As BookingData) As ActionResult
             If ModelState.IsValid Then
-                db.Products.Add(product)
+                db.BookingDatas.Add(bookingData)
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            Return View(product)
+            Return View(bookingData)
         End Function
 
-        ' GET: Products/Edit/5
+        ' GET: BookingData/Edit/5
         Function Edit(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim product As Product = db.Products.Find(id)
-            If IsNothing(product) Then
+            Dim bookingData As BookingData = db.BookingDatas.Find(id)
+            If IsNothing(bookingData) Then
                 Return HttpNotFound()
             End If
-            Return View(product)
+            Return View(bookingData)
         End Function
 
-        ' POST: Products/Edit/5
+        ' POST: BookingData/Edit/5
         'To protect from overposting attacks, enable the specific properties you want to bind to, for 
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="id,ProductName,ProductType,SubCatagoty,ServiceType,Cost,Note")> ByVal product As Product) As ActionResult
+        Function Edit(<Bind(Include:="id,Service,Description,TechName,ServiceDate,ServiceTime,Customer,Address,emial,Phone,Status,ServiceTime2,PostCode,BrandName,ApplianceType,AdditionalReq")> ByVal bookingData As BookingData) As ActionResult
             If ModelState.IsValid Then
-                db.Entry(product).State = EntityState.Modified
+                db.Entry(bookingData).State = EntityState.Modified
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            Return View(product)
+            Return View(bookingData)
         End Function
 
-        ' GET: Products/Delete/5
+        ' GET: BookingData/Delete/5
         Function Delete(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim product As Product = db.Products.Find(id)
-            If IsNothing(product) Then
+            Dim bookingData As BookingData = db.BookingDatas.Find(id)
+            If IsNothing(bookingData) Then
                 Return HttpNotFound()
             End If
-            Return View(product)
+            Return View(bookingData)
         End Function
 
-        ' POST: Products/Delete/5
+        ' POST: BookingData/Delete/5
         <HttpPost()>
         <ActionName("Delete")>
         <ValidateAntiForgeryToken()>
         Function DeleteConfirmed(ByVal id As Integer) As ActionResult
-            Dim product As Product = db.Products.Find(id)
-            db.Products.Remove(product)
+            Dim bookingData As BookingData = db.BookingDatas.Find(id)
+            db.BookingDatas.Remove(bookingData)
             db.SaveChanges()
             Return RedirectToAction("Index")
         End Function

@@ -17,7 +17,7 @@ End Code
 </div>
 
 
-@Using (Html.BeginForm())
+@Using (Html.BeginForm("Edit", "AuthUsers", New With {.Name = Model.Name}, method:=FormMethod.Post))
     @Html.AntiForgeryToken()
 
     @<div class="form-horizontal">
@@ -54,8 +54,7 @@ End Code
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
-    </div>
-End Using
+    </div>  End Using
 
 <div>
     @Html.ActionLink("Back to List", "Index")
