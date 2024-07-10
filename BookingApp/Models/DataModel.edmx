@@ -26,21 +26,25 @@
           <Property Name="ServiceTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Customer" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="50" />
           <Property Name="emial" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="ServiceTime2" Type="datetime2" Precision="7" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplianceType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdditionalReq" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProductType" Type="nvarchar" MaxLength="50" />
-          <Property Name="SubCatagoty" Type="nvarchar" MaxLength="50" />
-          <Property Name="ServiceType" Type="nvarchar" MaxLength="50" />
-          <Property Name="Cost" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="500" />
+          <Property Name="SubCatagoty" Type="nvarchar" MaxLength="500" />
+          <Property Name="ServiceType" Type="nvarchar" MaxLength="500" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="500" />
           <Property Name="Note" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Service">
@@ -93,11 +97,11 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SubCatagoty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ServiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SubCatagoty" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tech">
@@ -132,6 +136,10 @@
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ServiceTime2" Type="DateTime" Precision="7" />
+          <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApplianceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdditionalReq" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -190,6 +198,10 @@
           <EntitySetMapping Name="BookingDatas">
             <EntityTypeMapping TypeName="BookingsModel.BookingData">
               <MappingFragment StoreEntitySet="BookingData">
+                <ScalarProperty Name="AdditionalReq" ColumnName="AdditionalReq" />
+                <ScalarProperty Name="ApplianceType" ColumnName="ApplianceType" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
                 <ScalarProperty Name="ServiceTime2" ColumnName="ServiceTime2" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

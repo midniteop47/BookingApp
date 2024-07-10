@@ -134,6 +134,7 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Edit(<Bind(Include:="id,Name,Pass,Permission")> ByVal authUser As AuthUser) As ActionResult
             If ModelState.IsValid Then
+                authUser.Name = authUser.Name
                 authUser.Pass = Encrypt(authUser.Pass)
                 db.Entry(authUser).State = EntityState.Modified
                 db.SaveChanges()

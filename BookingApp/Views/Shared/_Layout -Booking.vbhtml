@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-<html lang="en-AU">
 <head>
     <link rel="icon" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/favicon/0fc0909c-efae-42f7-b45f-9863ca6a0163.jpg/:/rs=w:16,h:16,m" sizes="16x16" />
     <link rel="icon" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/favicon/0fc0909c-efae-42f7-b45f-9863ca6a0163.jpg/:/rs=w:24,h:24,m" sizes="24x24" />
@@ -10,32 +9,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bookings | CDS Appliance Services</title>
-    <meta name="author" content="CDS Appliance Services" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="apple-touch-icon" sizes="57x57" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:57,h:57,m" />
-    <link rel="apple-touch-icon" sizes="60x60" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:60,h:60,m" />
-    <link rel="apple-touch-icon" sizes="72x72" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:72,h:72,m" />
-    <link rel="apple-touch-icon" sizes="114x114" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:114,h:114,m" />
-    <link rel="apple-touch-icon" sizes="120x120" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:120,h:120,m" />
-    <link rel="apple-touch-icon" sizes="144x144" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:144,h:144,m" />
-    <link rel="apple-touch-icon" sizes="152x152" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:152,h:152,m" />
-    <link rel="apple-touch-icon" sizes="180x180" href="//img1.wsimg.com/isteam/ip/02393fd3-2abe-4bd6-a45a-c29e19e65a70/logo%20edits%20new%20copy.jpg/:/rs=w:180,h:180,m" />
+    <meta name="author" content="CDS Appliance Services" />  
     <meta property="og:url" content="https://cdsapplianceservices.com.au/about-us" />
     <meta property="og:site_name" content="CDS Appliance Services" />
     <meta property="og:title" content="CDS Appliance Services" />
     <meta property="og:description" content="We fix all major home appliances. Call us today!" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://img1.wsimg.com/isteam/stock/4740" />
-    <meta property="og:locale" content="en_AU" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="CDS Appliance Services" />
-    <meta name="twitter:description" content="Fast &amp; Reliable Home Appliance Repairs" />
-    <meta name="twitter:image" content="https://img1.wsimg.com/isteam/stock/4740" />
-    <meta name="twitter:image:alt" content="CDS Appliance Services" />
-    <meta name="theme-color" content="#1875bb" />
-    <style>
-    </style>
-
+    <meta property="og:locale" content="en_AU" />   
+    <meta name="theme-color" content="#1875bb" />   
     <style data-glamor="cxs-default-sheet">
         .x .c1-1 {
             letter-spacing: normal
@@ -1197,7 +1179,6 @@
             background-color: rgb(255, 255, 255)
         }
     </style>
-
     <style>
         .gd-ad-flex-parent {
             animation-name: opacity-bounce;
@@ -1384,15 +1365,7 @@
         .grecaptcha-badge {
             visibility: hidden;
         }
-    </style>
-    <script>
-        "use strict";
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/sw.js');
-            });
-        }</script>
+    </style>   
     <style>
         body {
             margin: 0;
@@ -1422,11 +1395,13 @@
                                                             </a>
                                                         </div>
                                                     </div>
+                                                    </div>
                                                     <div data-ux="Block" class="x-el x-el-div c1-1 c1-2 c1-2z c1-25 c1-27 c1-15 c1-30 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                         <div data-ux="UtilitiesMenu" id="membership1191780-utility-menu" class="x-el x-el-div c1-1 c1-2 c1-15 c1-13 c1-31 c1-b c1-c c1-30 c1-d c1-32 c1-33 c1-e c1-f c1-g">
                                                             <span data-ux="Element" class="x-el x-el-span c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
-                                                                <div data-ux="Element" id="bs-1" class="x-el x-el-div c1-1 c1-2 c1-1i c1-b c1-c c1-d c1-e c1-f c1-g"></div>
+                                                               
                                                             </span>
+                                                        </div>
                                                         </div>
                                                         <div data-ux="Element" id="bs-2" class="x-el x-el-div c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g">
                                                             <span>

@@ -23,5 +23,9 @@ Partial Public Class BookingData
     Public Property Phone As String
     Public Property Status As String
     Public Property ServiceTime2 As Nullable(Of Date)
+    Public Property PostCode As String
+    Public Property BrandName As String
+    Public Property ApplianceType As String
+    Public Property AdditionalReq As String
 
 End Class
