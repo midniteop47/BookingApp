@@ -101,7 +101,6 @@ Namespace Controllers
                                     End If
                                 Else
                                     If currentTimeN > StopTime Then
-
                                         Dim resp As String = "No available slots"
                                         Return Json(resp, behavior:=JsonRequestBehavior.AllowGet)
                                     Else
@@ -138,8 +137,11 @@ Namespace Controllers
                         End If
 
                         'find the greatest time slop booked
-
-
+                        Dim currentTime3 As DateTime = StartTime
+                        If currentTime3 > StopTime Then
+                            Dim resp As String = "No available slots"
+                            Return Json(resp, behavior:=JsonRequestBehavior.AllowGet)
+                        End If
                         For Each row As DataRow In DS2.Tables(0).Rows
                             Dim timeStr As String = row(1).ToString()
                             Dim currentTimeC As DateTime
