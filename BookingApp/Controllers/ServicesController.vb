@@ -18,10 +18,19 @@ Namespace Controllers
         Function Index() As ActionResult
             Return View(db.Services.ToList())
         End Function
-        <HttpGet>
-        Function ServiceList() As ActionResult
-            Return Json(db.Services.ToList(), behavior:=JsonRequestBehavior.AllowGet)
+
+        Function ServiceList(ByVal P As String) As ActionResult
+            'Return Json(db.Services.ToList(), behavior:=JsonRequestBehavior.AllowGet)
+
+            Dim distinctServiceTypes = db.Products _
+        .Where(Function(pr) pr.ProductType = P) _
+        .Select(Function(pr) pr.ServiceType) _
+        .Distinct() _
+        .ToList()
+
+            Return Json(distinctServiceTypes, behavior:=JsonRequestBehavior.AllowGet)
         End Function
+
 
         ' GET: Services/Details/5
         Function Details(ByVal id As Integer?) As ActionResult

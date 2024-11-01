@@ -22,17 +22,42 @@ Namespace Controllers
             Dim products = db.Products.Select(Function(p) p.ProductName).Distinct().ToList()
             Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
         End Function
-        Function GetProdsType()
+        Function GetProdsType(ByVal brand As String)
             Dim products = db.Products.Select(Function(p) p.ProductType).Distinct().ToList()
             Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
         End Function
         <HttpGet>
-        Function GetProd(ByVal a As String, b As String, c As String)
+        Function GetProdsSub(ByVal brand As String, ByVal product As String)
+            Dim products = db.Products _
+        .Where(Function(p) p.ProductName = brand AndAlso p.ProductType = product) _
+        .Select(Function(p) p.SubCatagoty) _
+        .Distinct() _
+        .ToList()
+
+            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
+        End Function
+        Function GetProd(ByVal brand As String) As ActionResult
+            Dim products = db.Products _
+        .Where(Function(b) b.ProductName = brand) _
+        .Select(Function(p) p.ProductType) _
+        .Distinct() _
+        .ToList()
+
+            Return Json(products, behavior:=JsonRequestBehavior.AllowGet)
+        End Function
+
+        <HttpGet>
+        Function GetCost(ByVal a As String, b As String, c As String)
             Dim productList = db.Products _
-                    .Where(Function(p) p.ProductName = a AndAlso
-                                       p.ProductType = b AndAlso
-                                       p.ServiceType = c) _
-                    .ToList()
+            .Where(Function(p) p.ProductName = a AndAlso
+                               p.ProductType = b AndAlso
+                               p.SubCatagoty = c) _
+            .Select(Function(p) New With {
+                .Cost = p.Cost,
+                .Note = p.Note
+            }) _
+            .ToList()
+
             Return Json(productList, behavior:=JsonRequestBehavior.AllowGet)
         End Function
         ' GET: Products/Details/5
